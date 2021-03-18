@@ -3,14 +3,14 @@ import numpy as np
 from math import cos as c
 from math import sin as s
 
-# Input DH parameters
+
 dh_table = np.zeros((7, 4))
 for i in range(7):
-    parameters = np.array(list(map(int, input("Enter parameters of " + str(i) + "th link ").strip().split())))
+    parameters = np.array(list(map(int, input("No. of parameters " + str(i) + "th link ").strip().split())))
     dh_table[i] = parameters
 
 
-# i is subscript and j is superscript for T
+
 def T(i, j):
     theta_i = math.radians(dh_table[i][3])
     a_j = dh_table[j][1]
@@ -29,5 +29,5 @@ def final_transformation_matrix():
     return mat
 
 
-point_coords = np.array([0, 0, 0, 1])
-print(np.matmul(final_transformation_matrix(), point_coords))
+coordinates = np.array([0, 0, 0, 1])
+print(np.matmul(final_transformation_matrix(), coordinates))
